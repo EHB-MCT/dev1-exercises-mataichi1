@@ -10,6 +10,7 @@ let height = 300;
 
 drawLines();
 drawMoreLines();
+draw();
 
 function drawLines() {
 	let step = width / horizontaLines;
@@ -21,6 +22,15 @@ function drawLines() {
 function drawMoreLines() {
 	let step = height / verticalLines;
 	for (let i = 0; i < verticalLines; i++) {
-		Utils.drawMoreLines(0 + 10 * i, 0, height - step * i, width);
+		Utils.drawLine(0, 0 + 10 * i, width, height - step * i);
 	}
+}
+
+function draw() {
+	context.lineWidth = 2;
+	context.strokeStyle = "white";
+	context.fillStyle = "orange";
+	context.fillRect(0, 0, 600, 300);
+	drawLines();
+	drawMoreLines();
 }
